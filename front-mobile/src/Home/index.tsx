@@ -1,22 +1,19 @@
-import { OpenSans_700Bold } from '@expo-google-fonts/open-sans';
 import React from 'react';
-import {
-    StyleSheet,
-    Image,
-    Text,
-    View
-}
-    from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import {StyleSheet, Image, Text,  View}from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
+import Header from '../Header';
 
 function Home() {
 
+    const navigation = useNavigation();
     const handleOnPress = () =>{
-
+        navigation.navigate('Orders')
     }
 
     return (
         <>
+        <Header />
             <View style={styles.container}>
                 <Image source={require('../assets/deliveryman.png')} />
                 <Text style={styles.title}>Acompanhe os pedidos e {'\n'}

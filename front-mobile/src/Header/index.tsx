@@ -1,20 +1,24 @@
 import { OpenSans_700Bold } from '@expo-google-fonts/open-sans';
 import React from 'react';
-import {
-    StyleSheet,
-    Image,
-    Text,
-    View
-}
-    from 'react-native';
+import { StyleSheet, Image, Text, View}from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import { TouchableNativeFeedback } from 'react-native-gesture-handler';
 
 function Header() {
+
+    const navigation = useNavigation();
+
+    const handleOnPress = () =>{
+        navigation.navigate('Home')
+    }
     return (
+        <TouchableNativeFeedback onPress={handleOnPress}>
         <View style={styles.container}>
             <Image source={require('../assets/logo.png')} />
             <Text style={styles.text}>DS Delivery</Text>
 
         </View>
+        </TouchableNativeFeedback>
     );
 }
 
